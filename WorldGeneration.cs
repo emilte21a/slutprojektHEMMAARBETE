@@ -14,9 +14,7 @@ public class WorldGeneration
     private int heightMultiplier = 1;
     private int heightAddition = 40;
 
-    public Vector2[] spawnPoints;
-
-
+    public Vector2[] spawnPoints; 
 
     public WorldGeneration()
     {
@@ -26,8 +24,8 @@ public class WorldGeneration
 
     public void GenerateTiles()
     {
-        Image heightImage = Raylib.GenImagePerlinNoise(worldSize * 10, worldSize * 10, seed, seed, 0.5f);
-        Image noiseImage = Raylib.GenImagePerlinNoise(worldSize * 10, worldSize * 10, seed, seed, 2f);
+        Image heightImage = Raylib.GenImagePerlinNoise(worldSize * 10, worldSize * 10, seed, seed, 1f);
+        Image noiseImage = Raylib.GenImagePerlinNoise(worldSize * 10, worldSize * 10, seed, seed, 4f);
 
         for (int x = 0; x < noiseImage.Width; x++)
         {
@@ -47,7 +45,6 @@ public class WorldGeneration
     {
         tile.position = position;
         tilesInWorld.Add(tile);
-
     }
 
     public void Draw()
@@ -63,8 +60,6 @@ public class WorldGeneration
 
 public static class SpawnEntity
 {
-
-
     public static void SpawnEntityAt(Entity entity, Vector2 position)
     {
         entity.position = position;

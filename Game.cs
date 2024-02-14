@@ -21,7 +21,7 @@ public class Game
         {
             Target = new Vector2(0, 0),
             Offset = new Vector2(ScreenWidth / 2, ScreenHeight / 2),
-            Zoom = 0.5f
+            Zoom = 0.1f
         };
         player = new Player() { camera = camera };
         worldGeneration = new WorldGeneration();
