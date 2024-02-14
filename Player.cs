@@ -1,25 +1,12 @@
 public class Player : Entity
 {
-    private Rectangle _rectangle;
-
-    private float _speed = 50;
+    private float _speed = 10;
 
     public Camera2D camera { get; init; }
 
     PhysicsBody physicsBody;
     Renderer renderer;
     Collider collider;
-
-    public Vector2 position
-    {
-        get => new Vector2(_rectangle.X, _rectangle.Y);
-        set
-        {
-            _rectangle.X = value.X;
-            _rectangle.Y = value.Y;
-        }
-
-    }
 
     public Player()
     {
@@ -29,6 +16,8 @@ public class Player : Entity
         collider = GetComponent<Collider>();
         renderer = GetComponent<Renderer>();
         renderer.sprite = Raylib.LoadTexture("Bilder/Z.png");
+        _rectangle.X = position.X;
+        _rectangle.Y = position.Y;
     }
 
 
@@ -40,7 +29,8 @@ public class Player : Entity
 
     public override void Draw()
     {
-        Raylib.DrawTexture(renderer.sprite, (int)_rectangle.X, (int)_rectangle.Y, Color.White);
+        //Raylib.DrawTexture(renderer.sprite, (int)_rectangle.X, (int)_rectangle.Y, Color.White);
+        Raylib.DrawRectangleRec(_rectangle, Color.Black);
     }
 
     private void MovePlayer()

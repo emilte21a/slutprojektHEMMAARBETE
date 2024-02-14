@@ -21,17 +21,17 @@ public class Game
         {
             Target = new Vector2(0, 0),
             Offset = new Vector2(ScreenWidth / 2, ScreenHeight / 2),
-            Zoom = 0.2f
+            Zoom = 0.5f
         };
         player = new Player() { camera = camera };
         worldGeneration = new WorldGeneration();
         worldGeneration.GenerateTiles();
+        SpawnEntity.SpawnEntityAt(player, new Vector2(2500, worldGeneration.spawnPoints[500].Y));
     }
 
 
     public void Run()
     {
-        
         while (!Raylib.WindowShouldClose())
         {
             Update();
